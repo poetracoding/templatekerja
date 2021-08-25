@@ -4,7 +4,7 @@
         <div class="card card-widget widget-user">
             <!-- Add the bg color to the header using any of the bg-* classes -->
             <div class="widget-user-header bg-info">
-                <h3 class="widget-user-username">Diyan Pramana Putra</h3>
+                <h3 class="widget-user-username"><?= $userapp["nama"]; ?></h3>
                 <h5 class="widget-user-desc">Helpdesk IT</h5>
             </div>
             <div class="widget-user-image">
@@ -45,7 +45,7 @@
 </div>
 <div class="row">
     <div class="col-sm-4">
-        <a href="">
+        <a href="<?= base_url('posit'); ?>">
             <div class="card bg-primary">
                 <div class="card-body text-center">
                     <i class='fas fa-sm fa-plus-circle'></i> Tambah Pekerjaan

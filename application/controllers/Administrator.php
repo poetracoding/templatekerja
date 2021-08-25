@@ -8,15 +8,16 @@ class Administrator extends CI_Controller
     {
         parent::__construct();
 
-        // if ($this->session->userdata('applevel') != 1) {
-        //     redirect('akses');
+        // if ($this->session->userdata('itusername') != null) {
+        //     redirect('Administrator');
         // }
         date_default_timezone_set('Asia/Jakarta');
     }
     public function index()
     {
+        $data["userapp"] = $this->db->get_where('tbluser', ["username" => $this->session->userdata('itusername')])->row_array();
         // // Tampilan
-        $this->load->view('template/head');
+        $this->load->view('template/head', $data);
         $this->load->view('template/title');
         $this->load->view('template/css');
         $this->load->view('template/datatablecss');
@@ -35,5 +36,10 @@ class Administrator extends CI_Controller
 
         $this->load->view('template/add');
         $this->load->view('template/end');
+    }
+    public function pesan()
+    {
+        $this->load->model('Model');
+        $this->Model->kirimpesan('-522972089', 'hello semua');
     }
 }
