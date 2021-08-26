@@ -1,7 +1,8 @@
 {
   "require": {
     "phpoffice/phpspreadsheet": "^1.18",
-    "mpdf/mpdf": "^8.0"
+    "mpdf/mpdf": "^8.0",
+    "box/spout": "^3.3"
   },
   "config": {
     "platform-check": false
