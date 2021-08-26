@@ -8,9 +8,9 @@ class Posit extends CI_Controller
     {
         parent::__construct();
 
-        // if ($this->session->userdata('applevel') != 1) {
-        //     redirect('akses');
-        // }
+        if ($this->session->userdata('itusername') == null) {
+            redirect('akses');
+        }
         date_default_timezone_set('Asia/Jakarta');
         $this->load->model('Model');
     }
@@ -48,7 +48,9 @@ class Posit extends CI_Controller
             // $this->load->view('template/add');   
             $this->load->view('template/end');
         } else {
-
+            if ($this->session->userdata('itusername') == "tamu") {
+                redirect();
+            }
             $kode = "P" . date('YmdHis') . rand(10, 99);
             $this->db->join('tblulp', 'tblulp.kodeulp=tblpegawai.unit');
             $pegawai = $this->db->get_where('tblpegawai', ["nip" => $this->input->post('txtnama')])->row_array();
@@ -82,6 +84,9 @@ class Posit extends CI_Controller
     }
     public function delete($kode = "")
     {
+        if ($this->session->userdata('itusername') == "tamu") {
+            redirect();
+        }
         if ($kode == "") {
             redirect();
         } else {

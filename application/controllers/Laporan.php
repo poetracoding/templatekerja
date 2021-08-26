@@ -11,9 +11,9 @@ class Laporan extends CI_Controller
     {
         parent::__construct();
 
-        // if ($this->session->userdata('itusername') != null) {
-        //     redirect('Administrator');
-        // }
+        if ($this->session->userdata('itusername') == null) {
+            redirect('akses');
+        }
         date_default_timezone_set('Asia/Jakarta');
     }
     public function index()
@@ -104,18 +104,21 @@ class Laporan extends CI_Controller
                 $sheet->setCellValue('H' . $x, $hasilrespon->format('Y-m-d H:i:s'));
                 $sheet->setCellValue('I' . $x, $hasiltravel->format('Y-m-d H:i:s'));
                 $sheet->setCellValue('J' . $x, $hasilrecovery->format('Y-m-d H:i:s'));
-                $sheet->setCellValue('K' . $x,  $row->respon);
+                $sheet->setCellValue('K' . $x, $row->respon);
+                // $spreadsheet->getActiveSheet()->getStyle('K' . $x)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_YYYYMMDDSLASH);
                 $sheet->setCellValue('L' . $x,  $row->travel);
-                $sheet->setCellValue('M' . $x,  $row->recovery);
+                // $spreadsheet->getActiveSheet()->getStyle('L' . $x)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_YYYYMMDDSLASH);
+                $sheet->setCellValue('M' . $x,   $row->recovery);
+                // $spreadsheet->getActiveSheet()->getStyle('M' . $x)->getNumberFormat()->setFormatCode(\PhpOffice\PhpSpreadsheet\Style\NumberFormat::FORMAT_DATE_YYYYMMDDSLASH);
                 $sheet->setCellValue('N' . $x, $row->jenis);
                 $sheet->setCellValue('O' . $x, $row->keluhan);
                 $sheet->setCellValue('P' . $x, $row->tindakan);
-                $sheet->setCellValue('Q' . $x, "IT SUPPORT AREA PEMATANG SIANTAR");
-                $sheet->setCellValue('R' . $x, $row->username . " - IT SUPPORT AREA PEMATANG SIANTAR");
+                $sheet->setCellValue('Q' . $x, "IT SUPPORT UP3 PEMATANG SIANTAR");
+                $sheet->setCellValue('R' . $x, $row->username . " - IT SUPPORT UP3 PEMATANG SIANTAR");
                 $x++;
             }
             $writer = new Xlsx($spreadsheet);
-            $filename = 'Posit ' . $tgl1 . "sd" . $tgl2;
+            $filename = 'PosIT ' . $tgl1 . "sd" . $tgl2;
 
             header('Content-Type: application/vnd.ms-excel');
             header('Content-Disposition: attachment;filename="' . $filename . '.xlsx"');

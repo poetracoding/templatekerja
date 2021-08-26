@@ -27,14 +27,14 @@
                         <label for="txtrespon" class="col-sm-4">Respond Time</label>
                         <!-- <input required type="datetime-local" name="txtrespon" id="txtrespon" class="col-sm-8 form-control form-control-sm"> -->
 
-                        <select name="txtrespon1" id="txtrespon1" class="col-sm-2 form-control form-control-sm">
+                        <select name="txtrespon1" id="txtrespon1" class="col-sm-2 col-2 mr-1 form-control form-control-sm">
                             <?php for ($a = 0; $a <= 23; $a++) { ?>
                                 <option><?php if ($a <= 9) {
                                             echo "0";
                                         } ?><?= $a; ?></option>
                             <?php } ?>
                         </select>
-                        <select name="txtrespon2" id="txtrespon2" class="col-sm-2 form-control form-control-sm">
+                        <select name="txtrespon2" id="txtrespon2" class="col-sm-2 col-2 mr-1 form-control form-control-sm">
                             <?php for ($a = 0; $a <= 59; $a++) { ?>
                                 <option><?php if ($a <= 9) {
                                             echo "0";
@@ -47,14 +47,14 @@
                         <label for="txttravel" class="col-sm-4">Travel Time</label>
                         <!-- <input required type="datetime-local" name="txttravel" id="txttravel" class="col-sm-8 form-control form-control-sm"> -->
 
-                        <select name="txttravel1" id="txttravel1" class="col-sm-2 form-control form-control-sm">
+                        <select name="txttravel1" id="txttravel1" class="col-sm-2 col-2 mr-1 form-control form-control-sm">
                             <?php for ($a = 0; $a <= 23; $a++) { ?>
                                 <option><?php if ($a <= 9) {
                                             echo "0";
                                         } ?><?= $a; ?></option>
                             <?php } ?>
                         </select>
-                        <select name="txttravel2" id="txttravel2" class="col-sm-2 form-control form-control-sm">
+                        <select name="txttravel2" id="txttravel2" class="col-sm-2 col-2 mr-1 form-control form-control-sm">
                             <?php for ($a = 0; $a <= 59; $a++) { ?>
                                 <option><?php if ($a <= 9) {
                                             echo "0";
@@ -67,14 +67,14 @@
                         <label for="txtrecovery" class="col-sm-4">Recovery Time</label>
                         <!-- <input required type="datetime-local" name="txtrecovery" id="txtrecovery" class="col-sm-8 form-control form-control-sm"> -->
 
-                        <select name="txtrecovery1" id="txtrecovery1" class="col-sm-2 form-control form-control-sm">
+                        <select name="txtrecovery1" id="txtrecovery1" class="col-sm-2 col-2 mr-1 form-control form-control-sm">
                             <?php for ($a = 0; $a <= 23; $a++) { ?>
                                 <option><?php if ($a <= 9) {
                                             echo "0";
                                         } ?><?= $a; ?></option>
                             <?php } ?>
                         </select>
-                        <select name="txtrecovery2" id="txtrecovery2" class="col-sm-2 form-control form-control-sm">
+                        <select name="txtrecovery2" id="txtrecovery2" class="col-sm-2 col-2 mr-1 form-control form-control-sm">
                             <?php for ($a = 0; $a <= 59; $a++) { ?>
                                 <option><?php if ($a <= 9) {
                                             echo "0";
@@ -113,9 +113,11 @@
                         <label for="txttindakan" class="col-sm-4">Tindakan</label>
                         <input required type="text" name="txttindakan" id="txttindakan" class="col-sm-8 form-control form-control-sm">
                     </div>
-                    <div class="row">
-                        <div class="col text-right"><button class="btn btn-primary" type="submit">Simpan</button></div>
-                    </div>
+                    <?php if ($this->session->userdata('itusername') != "tamu") { ?>
+                        <div class="row">
+                            <div class="col text-right"><button class="btn btn-primary" type="submit">Simpan</button></div>
+                        </div>
+                    <?php } ?>
                 </form>
             </div>
         </div>

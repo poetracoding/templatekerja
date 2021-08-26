@@ -8,9 +8,9 @@ class Pegawai extends CI_Controller
     {
         parent::__construct();
 
-        // if ($this->session->userdata('itusername') != null) {
-        //     redirect('Administrator');
-        // }
+        if ($this->session->userdata('itusername') == null) {
+            redirect('akses');
+        }
         date_default_timezone_set('Asia/Jakarta');
     }
     public function index()
@@ -45,6 +45,9 @@ class Pegawai extends CI_Controller
             $this->load->view('template/add');
             $this->load->view('template/end');
         } else {
+            if ($this->session->userdata('itusername') == "tamu") {
+                redirect();
+            }
             $nip = strtoupper($this->input->post('txtnip'));
             $nama = strtoupper($this->input->post('txtnama'));
             $jabatan = strtoupper($this->input->post('txtjabatan'));

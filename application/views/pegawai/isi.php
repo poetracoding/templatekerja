@@ -33,9 +33,11 @@
                             endforeach; ?>
                         </select>
                     </div>
-                    <div class="row">
-                        <div class="col-12 text-right"><button type="submit" class="btn btn-primary">Simpan</button></div>
-                    </div>
+                    <?php if ($this->session->userdata('itusername') != "tamu") { ?>
+                        <div class="row">
+                            <div class="col text-right"><button class="btn btn-primary" type="submit">Simpan</button></div>
+                        </div>
+                    <?php } ?>
 
                 </form>
             </div>
@@ -45,8 +47,8 @@
         <div class="card">
             <div class="card-body">
                 <div class="table-responsive">
-                    <table class="table table-sm table-bordered table-hover">
-                        <thead>
+                    <table id="tabel" class="table table-sm table-bordered table-hover">
+                        <thead class="bg-info">
                             <tr>
                                 <th width="1px">#</th>
                                 <th>NIP</th>

@@ -55,7 +55,7 @@ class Akses extends CI_Controller
                             'itlevel'      => $user["level"]
                         ];
                         $this->session->set_userdata($data);
-                        $this->Model->kirimpesan('', "$username Berhasil login! di Aplikasi Helpdesk IT");
+                        // $this->Model->kirimpesan('', "$username Berhasil login! di Aplikasi Helpdesk IT");
 
                         // $this->History_model->add($username, "Login Aplikasi");
                         redirect('Akses');

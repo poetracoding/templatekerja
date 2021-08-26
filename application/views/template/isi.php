@@ -12,25 +12,32 @@
             </div>
             <div class="card-footer">
                 <div class="row">
-                    <div class="col-4 border-right">
+                    <div class="col-3 border-right">
                         <div class="description-block">
-                            <h5 class="description-header">3</h5>
+                            <h5 class="description-header"><?= $totalulp; ?></h5>
                             <span class="description-text">ULP</span>
                         </div>
                         <!-- /.description-block -->
                     </div>
-                    <!-- /.col -->
-                    <div class="col-4 border-right">
+                    <div class="col-3 border-right">
                         <div class="description-block">
-                            <h5 class="description-header">1</h5>
+                            <h5 class="description-header"><?= $pegawai; ?></h5>
+                            <span class="description-text">Pegawai</span>
+                        </div>
+                        <!-- /.description-block -->
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-3 border-right">
+                        <div class="description-block">
+                            <h5 class="description-header"><?= $myjob; ?></h5>
                             <span class="description-text">TO DAY</span>
                         </div>
                         <!-- /.description-block -->
                     </div>
                     <!-- /.col -->
-                    <div class="col-4">
+                    <div class="col-3">
                         <div class="description-block">
-                            <h5 class="description-header">35</h5>
+                            <h5 class="description-header"><?= $myjobbulan; ?></h5>
                             <span class="description-text">TO MONTH</span>
                         </div>
                         <!-- /.description-block -->
@@ -54,10 +61,10 @@
         </a>
     </div>
     <div class="col-sm-4">
-        <a href="">
+        <a href="<?= base_url('laporan/harian'); ?>">
             <div class="card bg-primary">
                 <div class="card-body text-center">
-                    <i class='fas fa-sm fa-list'></i> View Pekerjaan Hari ini
+                    <i class='fas fa-sm fa-download'></i> Laporan
                 </div>
             </div>
         </a>

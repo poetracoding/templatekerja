@@ -8,9 +8,9 @@ class Pc extends CI_Controller
     {
         parent::__construct();
 
-        // if ($this->session->userdata('applevel') != 1) {
-        //     redirect('akses');
-        // }
+        if ($this->session->userdata('itusername') == null) {
+            redirect('akses');
+        }
         date_default_timezone_set('Asia/Jakarta');
     }
     public function index()
